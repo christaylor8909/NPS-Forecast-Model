@@ -89,10 +89,11 @@ def extract_brand_name(dealership_name):
 
 def create_sample_data():
     """Create sample NPS data for demonstration"""
-    dates = pd.date_range(start='2022-01-01', end='2024-09-15', freq='M')
+    # Extend the sample data to current date to fill the gap
+    dates = pd.date_range(start='2022-01-01', end='2025-09-15', freq='M')
     np.random.seed(42)
     base_nps = 45
-    trend = np.linspace(0, 15, len(dates))
+    trend = np.linspace(0, 20, len(dates))  # Slightly steeper trend
     seasonal = 8 * np.sin(2 * np.pi * np.arange(len(dates)) / 12)
     noise = np.random.normal(0, 4, len(dates))
     
